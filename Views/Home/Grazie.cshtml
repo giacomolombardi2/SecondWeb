@@ -1,0 +1,27 @@
+@using Microsoft.EntityFrameworkCore
+@model PrenotazioneContext
+
+
+@{
+    
+    ViewData["Title"] ="Grazie";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Grazie!</h1>
+    <h2>Prenotazione avvenuta con successo!</h2>
+    <h3>Ecco l'elenco delle persone prenotate</h3>
+    
+    <table class="table table-bordered table-striped table-sm">
+        <thead><tr><th>Nome</th><th>Email</th><th>Data Prenotazione</th><</tr></thead>
+        <tbody>
+            @foreach(Prenotazione p in Model.Prenotazioni)
+            {
+            <tr><td>@p.Nome</td><td>@p.Email</td><td>@p.DataPrenotazione</td>
+            <td>@Html.ActionLink("cancella","cancella", "Home", new{id=p.PrenotazioneId}, null)</td>
+            <td>@Html.ActionLink("Modifica","Modifica",new {Id=p.PrenotazioneId})</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
