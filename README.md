@@ -4,9 +4,9 @@ Sito Web per le prenotazioni scritto in .NET Core 5.0.4, utilizzando il template
 <hr>
 Questo sito ha un sistema consente di fare operazioni di:
 <br>
-* registrazione
+-registrazione
 <br>
-* modifica
+-modifica
 <br>
-* eliminazione
+-eliminazione
 <br>
