@@ -12,5 +12,5 @@ Questo sito ha un sistema consente di fare operazioni di:
 * [Il sito è visibile su Azure cliccando qui sopra](https://lombardi5hsecondweb.azurewebsites.net/)
 
 # Schermata iniziale:
-![ia] (https://github.com/giacomolombardi2/SecondWeb/blob/master/home.PNG)
+!(https://github.com/giacomolombardi2/SecondWeb/blob/master/home.PNG)
 
