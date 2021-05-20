@@ -10,4 +10,6 @@ Questo sito ha un sistema consente di fare operazioni di:
 * modifica prenotazioni
 * eliminazione prenotazioni
 *  [Il sito è visibile su Azure cliccando qui sopra](https://lombardi5hsecondweb.azurewebsites.net/)
+<hr>
+
 
