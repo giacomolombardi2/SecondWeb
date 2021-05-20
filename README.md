@@ -6,12 +6,9 @@ Seconda web è appunto la seconda versione di PrimaWeb. SecondaWeb dunque è un 
 # Funzionamento
 
 Questo sito ha un sistema consente di fare operazioni di:
-
--registrazione
-
--modifica
-
--eliminazione
+* registrazione e login
+* modifica prenotazioni
+* eliminazione prenotazioni
 
 
 ![](https://lombardi5hsecondweb.azurewebsites.net/)
