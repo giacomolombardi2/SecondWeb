@@ -5,10 +5,14 @@ namespace Lombardi.Giacomo._5h.SecondaWeb.Models
 {
     public class Persona
     {
-        public string Nome {get;set;}
+        public int PersonaId { get; set; }
+        
+        public string Nome { get; set; }
 
-        public string Cognome {get;set;}
-        public int PresonaId { get; set; }
-        public DateTime Data{ get; set; }=DateTime.Now;
+        public string Cognome { get; set; }
+        
+        public DateTime Data { get; set; }
+
+        
     }
 }

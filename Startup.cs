@@ -42,6 +42,17 @@ namespace Lombardi.Giacomo._5h.SecondaWeb
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+                using (var serviceScope = 
+            app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope())
+    {
+        var context = serviceScope.ServiceProvider.GetRequiredService<DBContext>();
+        context.Database.Migrate();
+    
+        using (var client = new DBContext())
+        {
+            client.Database.EnsureCreated();
+        }
+  } 
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -55,9 +66,9 @@ namespace Lombardi.Giacomo._5h.SecondaWeb
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseRouting();
-            app.UseAuthorization();
             app.UseAuthentication();
-
+            app.UseAuthorization();
+            
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(

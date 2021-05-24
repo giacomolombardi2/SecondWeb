@@ -3,9 +3,15 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace Lombardi.Giacomo._5h.SecondaWeb.Models
 {
-     public class DBContext : IdentityDbContext
+ public class DBContext : IdentityDbContext
     {
         private readonly DbContextOptions _options;
+
+        public DBContext(){}
+
+        protected override void 
+                OnConfiguring(DbContextOptionsBuilder options)
+                => options.UseSqlite("Data Source=database.db");
 
         public DBContext(DbContextOptions options): base(options)
         {
@@ -19,6 +25,4 @@ namespace Lombardi.Giacomo._5h.SecondaWeb.Models
 
         public DbSet<Prenotazione> Prenotazioni { get ; set; }
     }
-
 }
-

@@ -22,12 +22,20 @@ namespace Lombardi.Giacomo._5h.SecondaWeb.Controllers
             _userManager = userManager;
             _signInManager = signInManager;
         }
+
+        public async Task<IActionResult> Logout()
+        {
+            await _signInManager.SignOutAsync();
+            return RedirectToAction("Index", "Home");
+        }
+
+        [HttpGet]
+
         public IActionResult Login()
         {
             return View();
         }
-        
-        [HttpPost]
+
         public async Task<IActionResult> Login(LoginDto user)
         {
             if (ModelState.IsValid)
@@ -48,13 +56,14 @@ namespace Lombardi.Giacomo._5h.SecondaWeb.Controllers
             return View(user); 
         }
 
+        
         public IActionResult Registra()
         {
             return View();
         }
 
         [HttpPost]
-        public async Task<IActionResult> Registra(RegistraDto model)
+        public async Task<IActionResult> Registra (RegistraDto model)
         {
             if (ModelState.IsValid)
             {
@@ -80,10 +89,7 @@ namespace Lombardi.Giacomo._5h.SecondaWeb.Controllers
             return View(model);
         }
 
-        public async Task<IActionResult> Logout()
-        {
-            await _signInManager.SignOutAsync();
-            return RedirectToAction("index", "Home");
-        }
+
+
     }
 }

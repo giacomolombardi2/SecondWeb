@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Lombardi.Giacomo._5h.SecondaWeb.Models;
-using Microsoft.AspNetCore.Authorization;
-using System.IO;
 
 namespace Lombardi.Giacomo._5h.SecondaWeb.Controllers
 {
@@ -26,103 +26,112 @@ namespace Lombardi.Giacomo._5h.SecondaWeb.Controllers
         }
         
         [Authorize]
+        [HttpGet]
+         public IActionResult Prenota()
+        {
+            return View();
+        }
+
+        [Authorize]
+        [HttpGet]
+         public IActionResult Elenco()
+        {
+            var db = new DBContext();
+            return View(db);
+        }
+        [Authorize]
+        [HttpPost]
+      public IActionResult Prenota(Prenotazione p)
+        {
+            //tipo - etichetta - operatore - valore - terminatore di istruzione 
+            //var a=10;
+
+            //tipo - etichetta - operatore - valore - terminatore di istruzione 
+            DBContext db = new DBContext();
+            db.Prenotazioni.Add(p);
+            db.SaveChanges();
+            
+            return View("Elenco", db);
+        }
+
+        [HttpGet]
+         public IActionResult Modifica(int Id)
+        {
+            var db = new DBContext();
+            Prenotazione prenotazione=db.Prenotazioni.Find(Id);
+            return View("Modifica",prenotazione);
+        
+        }
+
+         [HttpPost]
+        
+        public IActionResult Modifica(int id,Prenotazione nuovo)
+        {
+            var db = new DBContext();
+            var vecchio=db.Prenotazioni.Find(id);
+            if(vecchio!=null)
+            {
+                vecchio.Nome=nuovo.Nome;
+                vecchio.Email=nuovo.Email;
+                db.Prenotazioni.Update(vecchio);
+                db.SaveChanges();
+                return View("Elenco",db);
+            }
+            return NotFound();
+        }
+        [Authorize]
         public IActionResult Privacy()
         {
             return View();
         }
 
+        public IActionResult Cancella( int id)
+        {
+            var db = new DBContext();
+            Prenotazione prenotazione=db.Prenotazioni.Find(id);
+            db.Remove(prenotazione);
+            db.SaveChanges();
+            return View("Cancella",db);
+        }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        public IActionResult Elenco()
-        {
-             var db = new PrenotazioneContext();
-            return View(db.Prenotazioni);
-        }
-
-
         [Authorize]
-        [HttpGet]
-        public IActionResult Prenota()
+        public IActionResult Upload()
         {
             return View();
-        }
-        [HttpPost]
-         public IActionResult Prenota(Prenotazione p)
+        } 
+         [Authorize]
+         [HttpPost]
+         public IActionResult Upload(CreatePost post)
         {
-            var db = new PrenotazioneContext();
-                db.Prenotazioni.Add(p);
-                db.SaveChanges();
-            return View("Elenco",db.Prenotazioni);
-        }
-        public IActionResult Cancella(int Id)
-        {
+            MemoryStream memStream=new MemoryStream();
+            post.MyCSV.CopyTo(memStream);
+            //mette a zero il puntatore dello StreamReader
+            memStream.Seek(0,0);
 
-            var db = new PrenotazioneContext();
-            Prenotazione prenotazione=db.Prenotazioni.Find(Id);
-                db.Prenotazioni.Remove(prenotazione);
-                db.SaveChanges();
-            return View("Elenco",db.Prenotazioni);
-        }
-
-
-        [Authorize]
-        public IActionResult Modifica(int Id)
-        {
-            var db = new PrenotazioneContext();
-            Prenotazione prenotazione=db.Prenotazioni.Find(Id);
-            return View("Modifica",prenotazione);
-        
-        }
-
-        [HttpPost]
-        //public IActionResult Modifica(int id, [Bind("Nome,Email")] Prenotazione nuovo)
-        //{
-        public IActionResult Modifica(int id,Prenotazione nuovo)
-        {
-            var db = new PrenotazioneContext();
-            var vecchio=db.Prenotazioni.Find(id);
-            if(vecchio!=null){
-                    vecchio.Nome=nuovo.Nome;
-                    vecchio.Email=nuovo.Email;
-                db.Prenotazioni.Update(vecchio);
-                db.SaveChanges();
-                return View("Elenco",db.Prenotazioni);
-            }
-            return NotFound();
-        }
-        public IActionResult Upload(){
-            return View("Upload");
-        }
-
-        [Authorize]
-        [HttpPost]
-        public IActionResult Upload(CreatePost c){
-            MemoryStream stream =new MemoryStream();
-            c.MyCsv.CopyTo(stream);
-            stream.Seek(0,0);
-            StreamReader fn=new StreamReader(stream);
-
-            if(!fn.EndOfStream)
+            StreamReader fim=new StreamReader(memStream);
+            if(!fim.EndOfStream)
             {
-                PrenotazioneContext db =new PrenotazioneContext();
-                string riga=fn.ReadLine();
-                while(!fn.EndOfStream){
-
-                    riga=fn.ReadLine();
-                    string[] colonne=riga.Split(';');
-                   
-                    Prenotazione p =new Prenotazione{Nome=colonne[0],Email=colonne[1]};
+                //accedi al database
+                var db=new DBContext(); //oppure PrenotazioneContext db=new PrenotazioneContext(); 
+                string riga = fim.ReadLine();
+                while(!fim.EndOfStream)
+                {
+                    riga = fim.ReadLine();
+                    string[] colonne = riga.Split(";");
+                    Prenotazione p= new Prenotazione{Nome=colonne[0], Email=colonne[1], DataPrenotazione=Convert.ToDateTime(colonne[2])};
+                    
                     db.Prenotazioni.Add(p);
-                }
+                }                
                 db.SaveChanges();
-                return View("Elenco",db.Prenotazioni);
-            }
+            
+                return View("Elenco", db);                
+            }         
             return View();
         }
     }
 }
-

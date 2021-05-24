@@ -1,88 +1,90 @@
 <!DOCTYPE HTML>
 <!--
-	Hyperspace by HTML5 UP
-	html5up.net | 
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+Hyperspace by HTML5 UP
+html5up.net | 
+Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
-	<head>
-        <style>
-            #menu ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: inline-flex
-            }
-        </style>
-		<title>Hyperspace by HTML5 UP</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="/html5up-hyperspace/assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="/html5up-hyperspace/assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload">
-       	
-				<div id="menu" class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Lombardi.Giacomo._5h.SecondaWeb</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                     <span class="navbar-toggler-icon">
-						<ul >
+<head>
+<style>
+#menu ul {
+list-style: none;
+margin: 0;
+padding: 0;
+display: inline-flex
+}
+</style>
+<title>Hyperspace by HTML5 UP</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+<link rel="stylesheet" href="/html5up-hyperspace/assets/css/main.css" />
+<noscript><link rel="stylesheet" href="/html5up-hyperspace/assets/css/noscript.css" /></noscript>
+</head>
+<body class="is-preload">
 
-						<li >
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Login">   Login</a>
-                        </li>
+<div id="menu" class="container">
+<a  asp-area="" asp-controller="Home" asp-action="Index">Lombardi.Giacomo._5h.SecondaWeb</a>
+<button type="button" <!-- data-toggle="collapse" data-target=".navbar-collapse" --></button> 
+<span>
+<ul >
 
-						<li >
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Registra">   Registrati</a>
-                        </li>
+<li >
+<a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Login">   Login</a>
+</li>
 
-                        <li >
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">   Home</a>
-                        </li>
+<li >
+<a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="LogOut">   LogOut</a>
+</li>
 
-                        <li >
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">   Privacy</a>
-                        </li>
-                        <li >
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Prenota">   Prenota</a>
-                        </li>
-                        <li >
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Elenco">   Elenco</a>
-                        </li>
+<li >
+<a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Registra">   Registrati</a>
+</li>
 
-						<li >
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Upload">   Upload</a>
-                        </li>
-                    </ul>
-					 </span> 
-                </button>
-            	</div>
+<!--
+<li >
+<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">   Privacy</a>
+</li>
+-->
 
+<li >
+<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Prenota">   Prenota</a>
+</li>
+<li >
+<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Elenco">   Elenco</a>
+</li>
 
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
-
-   
-   
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
-	
+<li >
+<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Upload">   Upload</a>
+</li>
+</ul>
+</span> 
+</button>
+</div>
 
 
-		<!-- Scripts -->
-			<script src="/html5up-hyperspace/assets/js/jquery.min.js"></script>
-			<script src="/html5up-hyperspace/assets/js/jquery.scrollex.min.js"></script>
-			<script src="/html5up-hyperspace/assets/js/jquery.scrolly.min.js"></script>
-			<script src="/html5up-hyperspace/assets/js/browser.min.js"></script>
-			<script src="/html5up-hyperspace/assets/js/breakpoints.min.js"></script>
-			<script src="/html5up-hyperspace/assets/js/util.js"></script>
-			<script src="/html5up-hyperspace/assets/js/main.js"></script>
+<div class="container">
+<main role="main" class="pb-3">
+@RenderBody()
+</main>
+</div>
 
-	</body>
+
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+@await RenderSectionAsync("Scripts", required: false)
+
+
+
+<!-- Scripts -->
+<script src="/html5up-hyperspace/assets/js/jquery.min.js"></script>
+<script src="/html5up-hyperspace/assets/js/jquery.scrollex.min.js"></script>
+<script src="/html5up-hyperspace/assets/js/jquery.scrolly.min.js"></script>
+<script src="/html5up-hyperspace/assets/js/browser.min.js"></script>
+<script src="/html5up-hyperspace/assets/js/breakpoints.min.js"></script>
+<script src="/html5up-hyperspace/assets/js/util.js"></script>
+<script src="/html5up-hyperspace/assets/js/main.js"></script>
+
+</body>
 </html>
