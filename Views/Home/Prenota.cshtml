@@ -6,7 +6,7 @@
 <html>
 
 	<head>
-		<title>Reserve</title>
+		<title>Prenota</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -15,8 +15,47 @@
 <body class="is-preload">
 
   <header>
+<!-- -->
+<div id="menu" class="container">
+<a  asp-area="" asp-controller="Home" asp-action="Index">Home</a>
 
-      <h1 class="display-4">Reserve</h1>
+<span>
+<ul >
+
+<li >
+<a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Login">   Login</a>
+</li>
+
+<li >
+<a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="LogOut">   LogOut</a>
+</li>
+
+<li >
+<a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Registra">   Registrati</a>
+</li>
+
+<!--
+<li >
+<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">   Privacy</a>
+</li>
+-->
+
+<li >
+<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Prenota">   Prenota</a>
+</li>
+<li >
+<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Elenco">   Elenco</a>
+</li>
+
+<li >
+<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Upload">   Upload</a>
+</li>
+</ul>
+</span> 
+</button>
+</div>
+<!-- -->
+      <h1 class="display-4">Prenota</h1>
         <form class="m-2" method="POST" asp-action="Prenota">
 
           <div class="row gtr-uniform">

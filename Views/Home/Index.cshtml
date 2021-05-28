@@ -2,19 +2,15 @@
 ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-<h1 class="display-4">Welcome</h1>
-<p>Learn about <a href="https://docs.microsoft.com/aspnet/core"></a>.</p>
-</div>
+
 
 <section id="sidebar">
 <div class="inner">
 <nav>
 <ul>
 <li><a href="#intro">Benvenuto</a></li>
-<li><a href="#one">Chi siamo </a></li>
-<li><a href="#two">Cosa facciamo</a></li>
-<li><a href="#three">Teniamoci in contatto</a></li>
+<li><a href="#one">Eventi</a></li>
+<li><a href="#two">Funzionalità</a></li>
 </ul>
 </nav>
 </div>
@@ -26,8 +22,51 @@ ViewData["Title"] = "Home Page";
 
 <section id="intro" class="wrapper style1 fullscreen fade-up">
 <div class="inner">
-<h1>Lombardi Giacomo 5h Hyperspace</h1>
-<p>Sito di prenotazioni sviluppato con il template di html5up.net</p>
+<!-- -->
+<div id="menu" class="container">
+<a  asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+
+<span>
+<ul >
+
+<li >
+<a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Login">   Login</a>
+</li>
+
+<li >
+<a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="LogOut">   LogOut</a>
+</li>
+
+<li >
+<a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Registra">   Registrati</a>
+</li>
+
+<!--
+<li >
+<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">   Privacy</a>
+</li>
+-->
+
+<li >
+<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Prenota">   Prenota</a>
+</li>
+<li >
+<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Elenco">   Elenco</a>
+</li>
+
+<li >
+<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Upload">   Upload</a>
+</li>
+</ul>
+</span> 
+</button>
+</div>
+<!-- -->
+<h1>Prenota petardi</h1>
+<p>Sito di prenotazioni di eventi pirotecnici, sviluppato da Lombardi Giacomo della 5H, tramite il template di html5up.net</p>
+
+
+
 
 </div>
 </section>
@@ -35,29 +74,29 @@ ViewData["Title"] = "Home Page";
 
 <section id="one" class="wrapper style2 spotlights">
 <section>
-<a href="#" class="image"><img src="html5up-hyperspace/images/pic01.jpg" alt="" data-position="center center" /></a>
+<a href="#" class="image"><img src="https://www.fuochiefesta.com/wp-content/uploads/2014/02/CO_UB0106A_00-e1554819895706.jpg" alt="" data-position="center center" /></a>
 <div class="content">
 <div class="inner">
-<h2>Oro</h2>
-<p>Bel colore tendente all'oro.</p>
+<h2>Miniciccioli</h2>
+<p>Il Minicicciolo  è un petardo di piccole dimensioni contenente poca materia attiva. Il prodotto è venduto esclusivamente ai maggiori di anni 18 in confezioni da 50 o 60 pezzi.</p>
 </div>
 </div>
 </section>
 <section>
-<a href="#" class="image"><img src="html5up-hyperspace/images/pic02.jpg" alt="" data-position="top center" /></a>
+<a href="#" class="image"><img src="https://www.fuochiartificiali.it/wp-content/uploads/2016/06/111x.jpg" alt="" data-position="top center" /></a>
 <div class="content">
 <div class="inner">
-<h2>Grigio scuro</h2>
-<p>Bel colore tendente al grigio scuro.</p>
+<h2>Raudo Alessi</h2>
+<p>Il Raudo Alessi è un piccolo artifizio esplosivo, il suo significato si è esteso a indicare petardi piccoli ma piuttosto rumorosi, accendibili per sfregamento.</p>
 </div>
 </div>
 </section>
 <section>
-<a href="#" class="image"><img src="html5up-hyperspace/images/pic03.jpg" alt="" data-position="25% 25%" /></a>
+<a href="#" class="image"><img src="https://www.bobcaselli.it/images/prodotti/puma.jpg" alt="" data-position="25% 25%" /></a>
 <div class="content">
 <div class="inner">
-<h2>Grigio chiaro</h2>
-<p>Bel colore tendente al grigio chiaro.</p>
+<h2>Puma</h2>
+<p>Il Puma è  un petardo di media potenza, tipico dei festeggiamenti di capodanno di molti paesi del sud italia.</p>
 </div>
 </div>
 </section>
@@ -69,64 +108,33 @@ ViewData["Title"] = "Home Page";
 <h2>Cosa fa questo sito</h2>
 <p>Ecco qui le funzionalità.</p>
 <div class="features">
-<section>
-<span class="icon solid major fa-code"></span>
-<h3>Codice</h3>
-<p>Code.</p>
-</section>
+
 <section>
 <span class="icon solid major fa-lock"></span>
-<h3>Sicurezza</h3>
-<p>Safety.</p>
+<h3>Login-Registrazione</h3>
+<p></p>
+</section>
+<section>
+<span class="icon solid major fa-code"></span>
+<h3>Crea prenotazioni</h3>
 </section>
 <section>
 <span class="icon solid major fa-cog"></span>
-<h3>Modifica</h3>
-<p>Modify.</p>
+<h3>Modifica-elimina Prenotazioni</h3>
 </section>
 <section>
 <span class="icon solid major fa-desktop"></span>
-<h3>Visualizza</h3>
-<p>View.</p>
+<h3>Visualizza eventi</h3>
 </section>
 <section>
 <span class="icon solid major fa-link"></span>
-<h3>Allega</h3>
-<p>Attach.</p>
+<h3>Upload</h3>
 </section>
 <section>
 <span class="icon major fa-gem"></span>
+<h3>Logout</h3>
 </section>
 </div>
 
 </div>
 </section>
-
-
-<section id="three" class="wrapper style1 fade-up">
-<div class="inner">
-<h2>Teniamoci in contatto</h2>
-<p>Inserisci le tue credenziali.</p>
-<div>
-<section>
-<form method="post" action="#">
-<div class="fields">
-<div class="field half">
-<label for="name">Nome</label>
-<input type="text" name="name" id="name" />
-</div>
-<div class="field half">
-<label for="email">Email</label>
-<input type="text" name="email" id="email" />
-</div>
-<div class="field">
-<label for="message">Messaggio</label>
-<textarea name="message" id="message" rows="5"></textarea>
-</div>
-</div>
-<ul class="actions">
-<li><a href="" class="button submit">Invia il messaggio</a></li>
-</ul>
-</form>
-</section>
-

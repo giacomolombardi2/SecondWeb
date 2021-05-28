@@ -4,6 +4,46 @@
     ViewData["Title"] = "Login";
 }
 <div class="text-center">
+    <!-- -->
+<div id="menu" class="container">
+<a  asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+
+<span>
+<ul >
+
+<li >
+<a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Login">   Login</a>
+</li>
+
+<li >
+<a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="LogOut">   LogOut</a>
+</li>
+
+<li >
+<a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Registra">   Registrati</a>
+</li>
+
+<!--
+<li >
+<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">   Privacy</a>
+</li>
+-->
+
+<li >
+<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Prenota">   Prenota</a>
+</li>
+<li >
+<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Elenco">   Elenco</a>
+</li>
+
+<li >
+<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Upload">   Upload</a>
+</li>
+</ul>
+</span> 
+</button>
+</div>
+<!-- -->
 <h1>Login</h1>
 
         <form method="post">
